@@ -26,8 +26,7 @@ RUN chmod +x /scripts/entrypoint.sh /scripts/run.sh
 
 ADD etc /scripts
 
-ADD scripts/getConfdLatest.sh /tmp
-RUN /tmp/getConfdLatest.sh
+RUN /scripts/getConfdLatest.sh
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["/scripts/run.sh"]
