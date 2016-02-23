@@ -1,0 +1,6 @@
+[template]
+src = "mailname.tmpl"
+dest = "/etc/mailname"
+keys = [
+	"/mail/domainName"
+]

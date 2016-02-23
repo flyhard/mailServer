@@ -19,5 +19,6 @@ postconf -e smtpd_recipient_restrictions="permit_sasl_authenticated,\
     permit_mynetworks,\
     check_policy_service inet:${POSTGREY_PORT_60000_TCP_ADDR}:${POSTGREY_PORT_60000_TCP_PORT}"
 
+/usr/local/bin/confd -onetime -backend consul -node consul:8500
 
 exec $@

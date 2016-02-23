@@ -1,0 +1,3 @@
+{{range gets "/mail/aliases/*"}}
+{{base .Key}}: {{.Value}}
+{{end}}

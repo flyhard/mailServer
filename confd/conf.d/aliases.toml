@@ -1,0 +1,7 @@
+[template]
+src = "aliases.tmpl"
+dest = "/etc/aliases"
+keys = [
+	"/mail/aliases"
+]
+reload_cmd = "postalias /etc/aliases"

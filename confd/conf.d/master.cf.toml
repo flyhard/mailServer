@@ -1,0 +1,8 @@
+[template]
+src = "master.cf.tmpl"
+dest = "/etc/postfix/master.cf"
+keys = [
+	"/mail/domainName",
+	"/mail/hostname"
+]
+reload_cmd = "postfix status && postfix reload || echo no reload needed"

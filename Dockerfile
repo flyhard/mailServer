@@ -11,7 +11,6 @@ RUN /scripts/postgres-setup.sh
 #RUN mkdir /var/spool/mail/someone
 #RUN chown someone:mail /var/spool/mail/someone
 
-ADD /config/etc-aliases.txt /etc/aliases
 RUN chown root:root /etc/aliases
 RUN newaliases
 
@@ -24,9 +23,13 @@ RUN postmap /etc/postfix/access_sender
 EXPOSE 25
 RUN chmod +x /scripts/entrypoint.sh /scripts/run.sh
 
-ADD etc /scripts
-
 RUN /scripts/getConfdLatest.sh
+# Debug stuff
+RUN apt-get update
+RUN apt-get install -y swaks less
+
+ADD confd /etc/confd
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["/scripts/run.sh"]
+
