@@ -1,0 +1,12 @@
+{
+  "service": {
+    "name": "mail",
+    "tags": ["mail"],
+    "address": "127.0.0.1",
+    "port": 25,
+    "enableTagOverride": false,
+    "check": {
+      "interval": "5s",
+      "tcp": "127.0.0.1:25"
+    }
+  }}

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+consul agent -config-dir /etc/consul -join consul &
+
 postconf -e content_filter="smtp-amavis:[${AMAVIS_PORT_10024_TCP_ADDR}]:${AMAVIS_PORT_10024_TCP_PORT}"
 postconf -e smtpd_recipient_restrictions="permit_sasl_authenticated,\
     reject_unauth_destination,\
@@ -19,6 +21,6 @@ postconf -e smtpd_recipient_restrictions="permit_sasl_authenticated,\
     permit_mynetworks,\
     check_policy_service inet:${POSTGREY_PORT_60000_TCP_ADDR}:${POSTGREY_PORT_60000_TCP_PORT}"
 
-/usr/local/bin/confd -onetime -backend consul -node consul:8500
+/usr/local/bin/confd -onetime -backend consul -node localhost:8500
 
 exec $@

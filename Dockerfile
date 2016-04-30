@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM flyhard/debian-consul
 MAINTAINER Per Abich <per.abich@gmail.com>
 
 ADD scripts/ /scripts
@@ -29,6 +29,7 @@ RUN apt-get update
 RUN apt-get install -y swaks less
 
 ADD confd /etc/confd
+ADD consul /etc/consul/
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["/scripts/run.sh"]
