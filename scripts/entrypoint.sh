@@ -23,4 +23,8 @@ postconf -e smtpd_recipient_restrictions="permit_sasl_authenticated,\
 
 /usr/local/bin/confd -onetime -backend consul -node localhost:8500
 
+/usr/sbin/service cron start
+
+/usr/sbin/logrotate -f /etc/logrotate.conf
+
 exec $@
