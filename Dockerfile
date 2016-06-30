@@ -31,6 +31,8 @@ RUN apt-get install -y swaks less
 ADD confd /etc/confd
 ADD consul /etc/consul/
 
+RUN /usr/sbin/logrotate -f /etc/logrotate.conf
+
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["/scripts/run.sh"]
 
