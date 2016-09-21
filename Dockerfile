@@ -15,6 +15,7 @@ RUN chown root:root /etc/aliases
 RUN newaliases
 ADD /config/rsyslog-logrotate.conf /etc/logrotate.d/rsyslog
 ADD /config/access_sender /etc/postfix/access_sender
+ADD /config/rsyslog.conf /etc/rsyslog.conf
 RUN postmap /etc/postfix/access_sender
 # Use syslog-ng to get Postfix logs (rsyslog uses upstart which does not seem
 # to run within Docker).
